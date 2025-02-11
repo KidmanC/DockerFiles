@@ -1,17 +1,20 @@
-#!/bin/sh
+#!/bin/bash
 
-git clone https://github.com/KidmanC/DockerFiles.git
-cd DockerFiles
+# Define an array with folder names
+folders=("python" "javascript" "java" "rust" "kotlin")
 
-LANGUAGES=("java" "python" "javascript" "kotlin" "rust")
+# Loop through each folder
+for folder in "${folders[@]}"; do
+    echo "Processing $folder..."
 
-echo "Language, Execution Time (ms)" > results.csv
+    # Build the Docker image
+    docker build -t "${folder}_benchmark" "$folder"
 
-for lang in "${LANGUAGES[@]}"; do
-	echo "Building and running $lang implementation..."
+    # Run the container
+    docker run --rm "${folder}_benchmark"
 
-	docker build -t "countingsort-$lang" "./$lang"
+    echo "$folder benchmark completed."
+done
 
-	time=$(docker run --rm "countingsort-$lang")
+echo "All benchmarks finished."
 
-	echo
