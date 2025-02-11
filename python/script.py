@@ -35,7 +35,7 @@ end_time = time.time()
 # Calcular tiempo en milisegundos
 execution_time = (end_time - start_time) * 1000
 
-x = 'python_output.txt'
+x = 'python/python_output.txt'
 with open(x, 'w') as file:
     for i in data:
         file.write(str(i)+ '\n')
