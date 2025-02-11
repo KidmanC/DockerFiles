@@ -25,9 +25,20 @@ function countingSort(array) {
 }
 
 let data = [4, 2, 2, 8, 3, 3, 1];
+
+// Inicio del tiempo
+const startTime = performance.now();
+
+// Ejecutar el algoritmo
 countingSort(data);
+
+// Fin del tiempo
+const endTime = performance.now();
+
+// Calcular tiempo de ejecución en milisegundos
+const executionTime = endTime - startTime;
 
 let filePath = 'JavaScript/js_output.txt';
 fs.writeFileSync(filePath, data.join('\n'), 'utf8');
 
-console.log(`Output has been saved to ${filePath}`);
+console.log(executionTime.toFixed(3));

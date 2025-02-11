@@ -1,4 +1,5 @@
 import java.io.File
+import kotlin.system.measureTimeMillis
 
 fun countingSort(array: IntArray) {
     val size = array.size
@@ -29,12 +30,20 @@ fun countingSort(array: IntArray) {
 
 fun main() {
     val data = intArrayOf(4, 2, 2, 8, 3, 3, 1)
-    countingSort(data)
 
-    val fileName = "Kotlin/kotlin_output.txt"
+    // Crear el directorio si no existe
+    val dir = File("Kotlin")
+    dir.mkdirs()
+
+    // Medir el tiempo de ejecución
+    val executionTime = measureTimeMillis {
+        countingSort(data)
+    }
+
+    val fileName = "kotlin_output.txt"
     File(fileName).printWriter().use { out ->
         data.forEach { out.println(it) }
     }
 
-    println("Output has been saved to $fileName")
+    println(executionTime)
 }

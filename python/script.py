@@ -1,5 +1,7 @@
+import time
+
 def countingSort(array):
-    size = len (array)
+    size = len(array)
     output = [0] * size
 
     count = [0] * (max(array) + 1)
@@ -7,7 +9,7 @@ def countingSort(array):
     for i in range(0, size):
         count[array[i]] += 1
     
-    for i in range (1, max(array) + 1):
+    for i in range(1, max(array) + 1):
         count[i] += count[i - 1]
 
     i = size - 1
@@ -18,12 +20,24 @@ def countingSort(array):
     
     for i in range(0, size):
         array[i] = output[i]
-    
+
 data = [4, 2, 2, 8, 3, 3, 1]
+
+# Inicio del tiempo
+start_time = time.time()
+
+# Ejecutar el algoritmo
 countingSort(data)
+
+# Fin del tiempo
+end_time = time.time()
+
+# Calcular tiempo en milisegundos
+execution_time = (end_time - start_time) * 1000
+
 x = 'python_output.txt'
 with open(x, 'w') as file:
     for i in data:
         file.write(str(i)+ '\n')
-    print("executed")
-#print(data)
+    
+print(execution_time)

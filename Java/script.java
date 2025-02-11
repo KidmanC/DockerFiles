@@ -29,13 +29,27 @@ public class script {
 
     public static void main(String[] args) {
         int[] data = {4, 2, 2, 8, 3, 3, 1};
+        
+        // Registrar tiempo de inicio
+        long startTime = System.nanoTime();
+        
+        // Ejecutar el algoritmo
         countingSort(data);
+        
+        // Registrar tiempo de finalización
+        long endTime = System.nanoTime();
+        
+        // Calcular tiempo de ejecución en milisegundos
+        double milliseconds = (endTime - startTime) / 1_000_000.0;
 
         try (FileWriter fileWriter = new FileWriter("Java/java_output.txt")) {
             for (int num : data) {
                 fileWriter.write(num + "\n");
             }
-            System.out.println("Output has been saved to Java_output.txt");
+            
+            // Mostrar tiempo de ejecución en milisegundos
+            System.out.printf("Tiempo de ejecución: %.3f ms%n", milliseconds);
+            
         } catch (IOException e) {
             System.out.println("An error occurred while writing to the file.");
             e.printStackTrace();
