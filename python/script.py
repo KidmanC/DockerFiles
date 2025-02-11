@@ -21,8 +21,9 @@ def countingSort(array):
     
 data = [4, 2, 2, 8, 3, 3, 1]
 countingSort(data)
-x = 'Python\\python_output.txt'
+x = 'python_output.txt'
 with open(x, 'w') as file:
     for i in data:
         file.write(str(i)+ '\n')
+    print("executed")
 #print(data)
