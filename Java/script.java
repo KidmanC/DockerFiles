@@ -48,7 +48,7 @@ public class script {
             }
             
             // Mostrar tiempo de ejecución en milisegundos
-            System.out.printf("Tiempo de ejecución: %.3f ms%n", milliseconds);
+            System.out.print(milliseconds);
             
         } catch (IOException e) {
             System.out.println("An error occurred while writing to the file.");
