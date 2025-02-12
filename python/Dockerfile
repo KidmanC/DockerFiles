@@ -1,10 +1,6 @@
 FROM python:3.11-slim
-
 WORKDIR /app
-
-# Copy requirements first for better layer caching
-COPY script.py .
-
-# Run the application
+COPY . .
+RUN touch python_output.txt  # Crea el archivo si no existe
 CMD ["python", "script.py"]
 
