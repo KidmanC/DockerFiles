@@ -33,4 +33,3 @@ for lang in "${languages[@]}"; do
     cd ..
 done
 
-
