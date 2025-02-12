@@ -38,7 +38,7 @@ const endTime = performance.now();
 // Calcular tiempo de ejecución en milisegundos
 const executionTime = endTime - startTime;
 
-let filePath = 'JavaScript/js_output.txt';
+let filePath = 'javascript/js_output.txt';
 fs.writeFileSync(filePath, data.join('\n'), 'utf8');
 
 console.log(executionTime.toFixed(3));

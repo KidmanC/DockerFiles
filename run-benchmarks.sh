@@ -25,7 +25,7 @@ for lang in "${languages[@]}"; do
     execution_time=$output
 
     # Copiar el archivo de salida desde el contenedor
-    docker cp sum_primes_${lang}_container:/app/$lang/output.txt ../outputs/output_${lang}.txt > /dev/null
+    docker cp sum_primes_${lang}_container:/app/$lang/${lang}_output.txt ../outputs/${lang}_output.txt > /dev/null
 
     # Eliminar el contenedor
     docker rm sum_primes_${lang}_container > /dev/null

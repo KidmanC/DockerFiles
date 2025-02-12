@@ -32,7 +32,7 @@ fun main() {
     val data = intArrayOf(4, 2, 2, 8, 3, 3, 1)
 
     // Crear el directorio si no existe
-    val dir = File("Kotlin")
+    val dir = File("kotlin")
     dir.mkdirs()
 
     // Medir el tiempo de ejecución

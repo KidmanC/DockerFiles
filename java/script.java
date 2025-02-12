@@ -42,7 +42,7 @@ public class script {
         // Calcular tiempo de ejecución en milisegundos
         double milliseconds = (endTime - startTime) / 1_000_000.0;
 
-        try (FileWriter fileWriter = new FileWriter("Java/java_output.txt")) {
+        try (FileWriter fileWriter = new FileWriter("java/java_output.txt")) {
             for (int num : data) {
                 fileWriter.write(num + "\n");
             }
