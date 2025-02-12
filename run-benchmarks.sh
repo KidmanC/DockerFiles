@@ -4,7 +4,7 @@
 mkdir -p outputs
 
 # Declarar un array para los lenguajes
-languages=("python" "Java")
+languages=("python" "java")
 
 # Inicializar arrays para almacenar los tiempos y resultados
 declare -A times
