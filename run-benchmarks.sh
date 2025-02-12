@@ -6,20 +6,8 @@ mkdir -p outputs
 # Declarar un array para los lenguajes
 languages=("python" "java")
 
-# Inicializar arrays para almacenar los tiempos y resultados
-declare -A times
-declare -A results
-
-# Recorrer cada lenguaje
 for lang in "${languages[@]}"; do
     echo "Procesando $lang..."
-    
-    # Verificar que el directorio existe
-    if [ ! -d "$lang" ]; then
-        echo "El directorio $lang no existe"
-        continue
-    }
-    
     cd $lang
 
     # Construir la imagen de Docker
