@@ -13,15 +13,23 @@ declare -A results
 # Recorrer cada lenguaje
 for lang in "${languages[@]}"; do
     echo "Procesando $lang..."
+    
+    # Verificar que el directorio existe
+    if [ ! -d "$lang" ]; then
+        echo "El directorio $lang no existe"
+        continue
+    }
+    
     cd $lang
 
     # Construir la imagen de Docker
     echo "Construyendo imagen para $lang..."
-    docker build -t sum_primes_$lang .
+    docker build -t "sum_primes_$lang" .
 
-    # Ejecutar el contenedor y capturar el tiempo de ejecución
+    # Ejecutar el contenedor
     echo "Ejecutando contenedor para $lang..."
-    docker run --rm -v "$(pwd)/$lang:app/$lang" sum_primes_$lang
+    docker run --rm -v "$(pwd):/app" "sum_primes_$lang"
+    
     cd ..
 done
 
